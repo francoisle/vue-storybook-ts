@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-console
 const log = () => console.log('Welcome to storybook!');
 
 export default {
@@ -113,9 +112,9 @@ export default {
   `,
 
   methods: {
-    onClick(event) {
+    onClick(event: any) {
       event.preventDefault();
-      this.showApp();
+      (this as any).showApp();
     },
   },
 };

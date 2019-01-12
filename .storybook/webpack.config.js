@@ -1,20 +1,23 @@
-const path = require("path");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-module.exports = (baseConfig, env, defaultConfig) => {
-  // Extend defaultConfig as you need.
+module.exports = (storybookBaseConfig, configType, defaultConfig) => {
+  defaultConfig.resolve.extensions.push('.ts', '.tsx', '.vue', '.css', '.less', '.scss', '.sass', '.html');
 
-  // For example, add typescript loader:
   defaultConfig.module.rules.push({
-    test: /\.vue$/,
-    loader: require.resolve("vue-loader"),
-    include: path.resolve(__dirname, "../")
+    test: /\.ts$/,
+    exclude: /node_modules/,
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+          transpileOnly: true // used with ForkTsCheckerWebpackPlugin
+        },
+      }
+    ],
   });
-  defaultConfig.module.rules.push({
-    test: /\.tsx?$/,
-    loader: require.resolve("ts-loader"),
-    include: path.resolve(__dirname, "../")
-  });
-  defaultConfig.resolve.extensions.push(".vue", ".ts", ".tsx");
+
+  defaultConfig.plugins.push(new ForkTsCheckerWebpackPlugin());
 
   return defaultConfig;
 };

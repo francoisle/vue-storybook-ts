@@ -1,8 +1,7 @@
 <template>
-  Helllooo
   <p class="message" :style="{color: this.color}">
-  Received msg prop: {{msg}}
-</p>
+    Received msg prop: {{msg}}
+  </p>
 </template>
 
 <script lang="ts">
