@@ -1,34 +1,30 @@
 # vue-storybook
 
-## Project setup
-```
-npm install
-```
+This is simple project to show one working solution to set vue-storybook with Typescript.
 
-### Compiles and hot-reloads for development
+NPM script commands:
+
+## Serve the application (on port 8080 if available):
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## Build the application (for production purposes):
 ```
 npm run build
 ```
 
-### Run your tests
+## Serve the storybook (on port 6006 if available):
 ```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm run storybook
 ```
 
-### Run your unit tests
+## Serve the storybook (on port 6006 if available):
 ```
-npm run test:unit
+npm run storybook
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Build the storybook:
+```
+npm run build-storybook
+```
